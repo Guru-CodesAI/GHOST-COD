@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHOST // TASK FORCE 141 DECLASSIFIED DOSSIER</title>
+    <meta name="description" content="Classified military dossier and tactical operational record for Task Force 141 operator Simon 'Ghost' Riley. Under clearance level 5.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="hud-locked">
+    <!-- Cinematic Initialization Overlay -->
+    <div id="hud-init-overlay" class="hud-init-overlay">
+        <div class="hud-init-content font-mono">
+            <div class="init-glitch-logo">
+                <span>// ACCESS SYSTEM INTEL PROTOCOL 141 //</span>
+            </div>
+            <div class="init-terminal-log">
+                <p>> DECRYPTING SATELLITE TELEMETRY...</p>
+                <p>> LINK STATE: ONLINE [AES-256]</p>
+                <p class="text-green">> SIGNATURE AUTHENTICATED // SUBJECT: SIMON GHOST RILEY</p>
+                <p class="text-secondary">> WARNING: Tactical audio feedback will initialize unmuted.</p>
+            </div>
+            <button id="btn-init-terminal" class="btn-init-terminal">
+                <span class="btn-bracket">[</span>
+                <span class="btn-text">INITIALIZE SYSTEM LINK</span>
+                <span class="btn-bracket">]</span>
+            </button>
+            <div class="init-footer">
+                <span>CLEARANCE LEVEL 5 REQUIRED</span>
+                <span>SECURE SATELLITE COMMS LINK</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CRT scanlines overlay -->
+    <div class="crt-overlay"></div>
+    <div class="hud-grid-overlay"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="hud-header">
+        <div class="hud-container header-inner">
+            <div class="logo-area">
+                <span class="classification-tag">CLASSIFIED // LEVEL 5</span>
+                <div class="logo-title-group">
+                    <img src="asset/memories/Taskforce-141.jpg" alt="TF 141 Logo" class="header-logo">
+                    <h1 class="logo-text">GHOST<span class="accent-orange">//</span>141</h1>
+                </div>
+            </div>
+            
+            <nav class="desktop-nav">
+                <a href="#hero" class="nav-link active" data-target="hero"><span class="nav-num">01.</span> STATUS</a>
+                <a href="#dossier" class="nav-link" data-target="dossier"><span class="nav-num">02.</span> DOSSIER</a>
+                <a href="#missions" class="nav-link" data-target="missions"><span class="nav-num">03.</span> ARCHIVES</a>
+                <a href="#cctv" class="nav-link" data-target="cctv"><span class="nav-num">04.</span> FEED</a>
+                <a href="#action-feed" class="nav-link" data-target="action-feed"><span class="nav-num">05.</span> ACTION</a>
+                <a href="#weapons" class="nav-link" data-target="weapons"><span class="nav-num">06.</span> ARMORY</a>
+                <a href="#timeline" class="nav-link" data-target="timeline"><span class="nav-num">07.</span> TIMELINE</a>
+                <a href="#memories" class="nav-link" data-target="memories"><span class="nav-num">08.</span> MEMORIES</a>
+                <a href="#terminal" class="nav-link" data-target="terminal"><span class="nav-num">09.</span> INTEL</a>
+            </nav>
+
+            <button id="btn-toggle-mute" class="hud-audio-btn" aria-label="Mute Audio">
+                <i data-lucide="volume-x"></i>
+            </button>
+
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer">
+        <nav class="mobile-nav">
+            <a href="#hero" class="mobile-nav-link active"><span class="nav-num">01.</span> OPERATIONAL STATUS</a>
+            <a href="#dossier" class="mobile-nav-link"><span class="nav-num">02.</span> BIOGRAPHICAL DOSSIER</a>
+            <a href="#missions" class="mobile-nav-link"><span class="nav-num">03.</span> MISSION ARCHIVES</a>
+            <a href="#cctv" class="mobile-nav-link"><span class="nav-num">04.</span> ACTIVE CCTV FEED</a>
+            <a href="#action-feed" class="mobile-nav-link"><span class="nav-num">05.</span> ACTION COD FEED</a>
+            <a href="#weapons" class="mobile-nav-link"><span class="nav-num">06.</span> ARMORY & GEAR</a>
+            <a href="#timeline" class="mobile-nav-link"><span class="nav-num">07.</span> HISTORICAL TIMELINE</a>
+            <a href="#memories" class="mobile-nav-link"><span class="nav-num">08.</span> OPERATIONAL MEMORIES</a>
+            <a href="#terminal" class="mobile-nav-link"><span class="nav-num">09.</span> TERMINAL DECRYPT</a>
+        </nav>
+    </div>
+
+    <!-- Background Decryption Progress Bar -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-label">DOSSIER DECRYPTION IN PROGRESS: <span id="progress-percent">0%</span></div>
+        <div class="scroll-progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Main Container -->
+    <main>
+        
+        <!-- 1. Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="video-background-container">
+                <video autoplay muted loop playsinline class="hero-video" src="asset/Hero-Sec/ghost-1.mp4"></video>
+                <div class="video-shade"></div>
+            </div>
+
+            <!-- HUD Elements in Hero -->
+            <div class="hud-corners">
+                <div class="corner-item top-left">[AUTH_OK]</div>
+                <div class="corner-item top-right">SYS_VER: 141.09</div>
+                <div class="corner-item bottom-left">LAT: 54°23'N // LONG: 3°02'W</div>
+                <div class="corner-item bottom-right">SIGNAL: SECURE</div>
+            </div>
+
+            <div class="radar-sweep"></div>
+            
+            <div class="hero-content">
+                <div class="glitch-container">
+                    <h2 class="glitch-text" data-text="GHOST">GHOST</h2>
+                </div>
+                <p class="hero-tagline">“WE MAKE SHADOWS COUNT.”</p>
+                <div class="hud-telemetry">
+                    <span class="telemetry-item blink"><i data-lucide="radio" class="inline-icon text-red"></i> LIVE TELEMETRY</span>
+                    <span class="telemetry-item">STATUS: <span class="badge text-green">ACTIVE IN FIELD</span></span>
+                    <span class="telemetry-item">CLEARANCE: <span class="text-orange">LEVEL 5 (OVERRIDE)</span></span>
+                </div>
+                
+                <a href="#dossier" class="scroll-indicator">
+                    <span class="scroll-text">DECLASSIFY FILES</span>
+                    <div class="mouse-icon">
+                        <div class="wheel"></div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 2. Operator Dossier Section -->
+        <section id="dossier" class="dossier-section section-padding">
+            <div class="hud-container">
+                <div class="section-header">
+                    <div class="hud-label">METRICS // PROFILE</div>
+                    <h2 class="section-title">OPERATOR DOSSIER</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="dossier-grid">
+                    <!-- Photo Card -->
+                    <div class="dossier-photo-card">
+                        <div class="photo-container">
+                            <img src="asset/Simon-Ghost-Riley.jpg" alt="Simon Ghost Riley" class="dossier-img">
+                            <div class="scanner-line"></div>
+                            <div class="thermal-overlay"></div>
+                            <div class="photo-hud">
+                                <span>MAG: 1.4X</span>
+                                <span>CAM: TF-141-SAT</span>
+                            </div>
+                            <img src="asset/memories/Taskforce-141.jpg" alt="TF 141 Logo Watermark" class="photo-logo-watermark">
+                        </div>
+                        <div class="photo-caption">
+                            <span>SUBJECT: Riley, Simon "Ghost"</span>
+                            <span>ORIGIN: Hereford, UK</span>
+                        </div>
+                    </div>
+
+                    <!-- Details Content -->
+                    <div class="dossier-info">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="biography">BIOGRAPHY</button>
+                            <button class="tab-btn" data-tab="psychology">PSYCH EVAL</button>
+                            <button class="tab-btn" data-tab="specs">TACTICAL SPECS</button>
+                        </div>
+
+                        <div class="tab-content-container">
+                            <!-- Biography Tab -->
+                            <div class="tab-content active" id="tab-biography">
+                                <div class="info-row">
+                                    <span class="info-label">CALL SIGN</span>
+                                    <span class="info-val text-green font-mono">GHOST</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">REAL NAME</span>
+                                    <span class="info-val font-mono">RILEY, SIMON</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">RANK</span>
+                                    <span class="info-val">LIEUTENANT</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">AFFILIATION</span>
+                                    <span class="info-val text-orange">TASK FORCE 141 (CO-FOUNDER)</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">PAST SERVICE</span>
+                                    <span class="info-val">BRITISH SPECIAL AIR SERVICE (SAS)</span>
+                                </div>
+                                <p class="bio-paragraph">
+                                    A British special forces operator who became a legendary figure under the skull-patterned balaclava. Known for executing highly covert infiltration missions in hostile zones solo or with Task Force 141. Riley is a silent specialist in silent infiltration, hostage rescue, and high-value target extraction.
+                                </p>
+                            </div>
+
+                            <!-- Psychology Tab -->
+                            <div class="tab-content" id="tab-psychology">
+                                <div class="warning-banner">
+                                    <i data-lucide="shield-alert" class="warning-icon"></i>
+                                    <span>WARNING: SECURE CLASSIFIED PSYCHOLOGICAL ASSESSMENT</span>
+                                </div>
+                                <p class="psych-text">
+                                    Subject exhibits extreme emotional restraint and calculated detachment. Riley operates with a stoic resolution, demonstrating a "laser-focus on mission" outcome even at high personal cost. Extreme trust issues noted; aligns closely with select operators (Captain John Price, John "Soap" MacTavish). 
+                                </p>
+                                <p class="psych-text">
+                                    Displays zero hesitation under stress. Uses physical and psychological isolation as tactical shields. The skull mask is both an intimidation asset and a psychological boundary separating "Simon" from "Ghost".
+                                </p>
+                            </div>
+
+                            <!-- Specs Tab -->
+                            <div class="tab-content" id="tab-specs">
+                                <div class="spec-bars">
+                                    <div class="spec-bar-group">
+                                        <div class="spec-bar-label">
+                                            <span>STEALTH & INFILTRATION</span>
+                                            <span>98%</span>
+                                        </div>
+                                        <div class="spec-bar-track">
+                                            <div class="spec-bar-fill" style="width: 98%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="spec-bar-group">
+                                        <div class="spec-bar-label">
+                                            <span>CLOSE QUARTERS COMBAT (CQC)</span>
+                                            <span>95%</span>
+                                        </div>
+                                        <div class="spec-bar-track">
+                                            <div class="spec-bar-fill" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="spec-bar-group">
+                                        <div class="spec-bar-label">
+                                            <span>TACTICAL RECONNAISSANCE</span>
+                                            <span>92%</span>
+                                        </div>
+                                        <div class="spec-bar-track">
+                                            <div class="spec-bar-fill" style="width: 92%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="spec-bar-group">
+                                        <div class="spec-bar-label">
+                                            <span>MARKSMANSHIP</span>
+                                            <span>89%</span>
+                                        </div>
+                                        <div class="spec-bar-track">
+                                            <div class="spec-bar-fill" style="width: 89%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Mission Archives Section -->
+        <section id="missions" class="missions-section section-padding">
+            <div class="hud-container">
+                <div class="section-header">
+                    <div class="hud-label">COVERT COMPILATION // ARCHIVES</div>
+                    <h2 class="section-title">DECLASSIFIED MISSION DOSSIERS</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="dossier-layout">
+                    <!-- Left Sidebar: Folders List -->
+                    <div class="missions-sidebar">
+                        <div class="sidebar-header font-mono">OPERATIONAL REGISTRY (10 FILES FOUND)</div>
+                        <div class="missions-list-container">
+                            <button class="mission-tab-btn active" data-mission-idx="0">
+                                <span class="tab-num">OP: 01</span>
+                                <span class="tab-name">RED FOREST</span>
+                                <span class="tab-status text-green">SUCCESS</span>
+                            </button>
+                            <button class="mission-tab-btn" data-mission-idx="1">
+                                <span class="tab-num">OP: 02</span>
+                                <span class="tab-name">DESERT CARTEL</span>
+                                <span class="tab-status text-green">SUCCESS</span>
+                            </button>
+                            <button class="mission-tab-btn" data-mission-idx="2">
+                                <span class="tab-num">OP: 03</span>
+                                <span class="tab-name">PRISON BREAK</span>
+                                <span class="tab-status text-green">SUCCESS</span>
+                            </button>
+                            <button class="mission-tab-btn" data-mission-idx="3">
+                                <span class="tab-num">OP: 04</span>
+                                <span class="tab-name">GHOST TEAM ASSAULT</span>
+                                <span class="tab-status text-green">SUCCESS</span>
+                            </button>
+                            <button class="mission-tab-btn" data-mission-idx="4">
+                                <span class="tab-num">OP: 05</span>
+                                <span class="tab-name">MIDNIGHT OIL RIG</span>
+                                <span class="tab-status text-green">SUCCESS</span>
+                            </button>
+                            <button class="mission-tab-btn" data-mission-idx="5">
+                                <span class="tab-num">OP: 06</span>
+                                <span class="tab-name">ISLAND EXTRACTION</span>
+                                <span class="tab-status text-green">SUCCESS</span>
+                            </button>
+                            <button class="mission-tab-btn" data-mission-idx="6">
+                                <span class="tab-num">OP: 07</span>
+                                <span class="tab-name">DAM DEFENSE</span>
+                                <span class="tab-status text-green">SUCCESS</span>
+                            </button>
+                            <button class="mission-tab-btn" data-mission-idx="7">
+                                <span class="tab-num">OP: 08</span>
+                                <span class="tab-name">VERDANSK HEIST</span>
+                                <span class="tab-status text-green">SUCCESS</span>
+                            </button>
+                            <button class="mission-tab-btn" data-mission-idx="8">
+                                <span class="tab-num">OP: 09</span>
+                                <span class="tab-name">CHICAGO STANDOFF</span>
+                                <span class="tab-status text-green">SUCCESS</span>
+                            </button>
+                            <button class="mission-tab-btn" data-mission-idx="9">
+                                <span class="tab-num">OP: 10</span>
+                                <span class="tab-name">ARMISTICE EVACUATION</span>
+                                <span class="tab-status text-orange">ACTIVE</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel: Folder View -->
+                    <div class="mission-dossier-card">
+                        <div class="dossier-paper">
+                            <div class="folder-header">
+                                <div class="folder-title-block">
+                                    <span class="confidential-stamp">CLASSIFIED</span>
+                                    <h3 class="folder-title" id="m-folder-title">OPERATION RED FOREST</h3>
+                                    <span class="folder-subtitle" id="m-folder-subtitle">AL MAZRAH MISSILE // OVERNIGHT RAID</span>
+                                </div>
+                                <div class="folder-metadata">
+                                    <div class="meta-item"><span class="label">DATE:</span> <span class="value" id="m-meta-date">OCTOBER 25</span></div>
+                                    <div class="meta-item"><span class="label">LOCATION:</span> <span class="value" id="m-meta-location">AFGHANISTAN</span></div>
+                                    <div class="meta-item"><span class="label">THREAT LVL:</span> <span class="value text-red" id="m-meta-threat">HIGH</span></div>
+                                    <div class="meta-item"><span class="label">STATUS:</span> <span class="value status-badge SUCCESS" id="m-meta-status">SUCCESS</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="folder-divider"></div>
+                            
+                            <div class="folder-body">
+                                <div class="body-section">
+                                    <h4 class="body-section-title"><i data-lucide="crosshair" class="sec-icon"></i> 01. TARGET OBJECTIVES</h4>
+                                    <p class="body-text" id="m-objectives">TF-141 hunts an Iranian Quds Force officer, Hassan Zyani, in Afghanistan. Ghost leads an overnight raid on a desert base to stop Hassan from launching a US-made cruise missile.</p>
+                                </div>
+                                
+                                <div class="body-section">
+                                    <h4 class="body-section-title"><i data-lucide="file-text" class="sec-icon"></i> 02. INTEL DECRYPTION SUMMARY</h4>
+                                    <p class="body-text" id="m-summary">The team fights through Al-Qatala insurgents and destroys the missile under heavy fire, securing the compound and stopping local launcher telemetry.</p>
+                                </div>
+                                
+                                <div class="body-section transcript-section">
+                                    <h4 class="body-section-title"><i data-lucide="message-square" class="sec-icon"></i> 03. INTERCEPTED VOICE TRANSCRIPT</h4>
+                                    <div class="intercept-box">
+                                        <span class="speaker font-mono">CALL SIGN: GHOST // OVER-THE-AIR INTERCEPT</span>
+                                        <p class="intercept-quote font-mono" id="m-transcript">“We’re a team… no one fights alone. This happened on my watch – I can’t fix it alone.”</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="dossier-laser"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Video Library (Active CCTV Command Station) -->
+        <section id="cctv" class="cctv-section section-padding">
+            <div class="hud-container">
+                <div class="section-header">
+                    <div class="hud-label">TACTICAL VISUAL FEED // COMMAND STATION</div>
+                    <h2 class="section-title">ACTIVE FIELD INTELLIGENCE</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="cctv-dashboard">
+                    <!-- Main Screen Monitor -->
+                    <div class="cctv-monitor">
+                        <div class="monitor-wrapper">
+                            <video id="cctv-player" autoplay muted loop playsinline class="monitor-video" src="asset/library/GhostAction-1.mp4"></video>
+                            
+                            <!-- Static Noise overlay -->
+                            <div class="tv-noise"></div>
+                            <div class="tv-scanlines"></div>
+
+                            <!-- Telemetry Overlays -->
+                            <div class="monitor-overlay-header">
+                                <div class="monitor-cam-label"><span class="blink-dot"></span> FEED: <span id="active-cam-num">CAM-01</span></div>
+                                <div class="monitor-timestamp" id="cctv-timestamp">UTC 10:24:59.34</div>
+                            </div>
+
+                            <div class="monitor-overlay-footer">
+                                <div class="recording-tag"><span class="rec-dot animate-pulse"></span> REC</div>
+                                <div class="telemetry-bar">
+                                    <span>SIG: STABLE</span>
+                                    <span>FPS: 60.00</span>
+                                    <span>ZOOM: 1.0X</span>
+                                </div>
+                            </div>
+
+                            <div class="monitor-static-flash"></div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Controls -->
+                    <div class="cctv-controls">
+                        <div class="controls-header font-mono">FEED MONITOR DIRECTORY</div>
+                        <ul class="feed-list">
+                            <li class="feed-item active" data-video="asset/library/GhostAction-1.mp4" data-cam="CAM-01">
+                                <div class="feed-thumbnail">
+                                    <video src="asset/library/GhostAction-1.mp4" muted loop playsinline></video>
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                                <div class="feed-meta">
+                                    <span class="feed-cam">CAM-01</span>
+                                    <span class="feed-title">TACTICAL ADVANCE</span>
+                                </div>
+                                <div class="feed-status font-mono">LIVE</div>
+                            </li>
+                            <li class="feed-item" data-video="asset/library/GhostAction-2.mp4" data-cam="CAM-02">
+                                <div class="feed-thumbnail">
+                                    <video src="asset/library/GhostAction-2.mp4" muted loop playsinline></video>
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                                <div class="feed-meta">
+                                    <span class="feed-cam">CAM-02</span>
+                                    <span class="feed-title">PERIMETER COMBAT</span>
+                                </div>
+                                <div class="feed-status font-mono">LIVE</div>
+                            </li>
+                            <li class="feed-item" data-video="asset/library/GhostAction-3.mp4" data-cam="CAM-03">
+                                <div class="feed-thumbnail">
+                                    <video src="asset/library/GhostAction-3.mp4" muted loop playsinline></video>
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                                <div class="feed-meta">
+                                    <span class="feed-cam">CAM-03</span>
+                                    <span class="feed-title">NIGHT EXFIL</span>
+                                </div>
+                                <div class="feed-status font-mono">LIVE</div>
+                            </li>
+                            <li class="feed-item" data-video="asset/library/GhostAction-4.mp4" data-cam="CAM-04">
+                                <div class="feed-thumbnail">
+                                    <video src="asset/library/GhostAction-4.mp4" muted loop playsinline></video>
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                                <div class="feed-meta">
+                                    <span class="feed-cam">CAM-04</span>
+                                    <span class="feed-title">SILENT INFILTRATION</span>
+                                </div>
+                                <div class="feed-status font-mono">LIVE</div>
+                            </li>
+                            <li class="feed-item" data-video="asset/library/GhostAction-5.mp4" data-cam="CAM-05">
+                                <div class="feed-thumbnail">
+                                    <video src="asset/library/GhostAction-5.mp4" muted loop playsinline></video>
+                                    <div class="thumb-overlay"></div>
+                                </div>
+                                <div class="feed-meta">
+                                    <span class="feed-cam">CAM-05</span>
+                                    <span class="feed-title">HOSTILE ENGAGEMENT</span>
+                                </div>
+                                <div class="feed-status font-mono">LIVE</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4B. ACTION COD FEED Section -->
+        <section id="action-feed" class="action-feed-section section-padding">
+            <div class="hud-container">
+                <div class="section-header">
+                    <div class="hud-label">COVERT FOOTAGE // HIGH VISIBILITY</div>
+                    <h2 class="section-title">ACTION COD FEED</h2>
+                    <div class="header-line"></div>
+                </div>
+            </div>
+            
+            <div class="full-screen-video-container">
+                <video id="action-video" loop autoplay muted playsinline class="full-screen-video" src="asset/[TubePull] All_Simon_Ghost_Riley.mp4"></video>
+                <div class="action-video-overlay">
+                    <div class="video-overlay-grid"></div>
+                    <div class="video-vignette"></div>
+                    <div class="tv-scanlines"></div>
+                    
+                    <div class="action-hud-elements">
+                        <!-- Top HUD telemetry -->
+                        <div class="action-hud-top">
+                            <div class="hud-box">
+                                <span class="blink-dot"></span> FEED: [TAC_REP_ALPHA]
+                            </div>
+                            <div class="hud-box font-mono">
+                                SOURCE: [TUBE_PULL_141]
+                            </div>
+                            <div class="hud-box text-orange">
+                                CLASSIFIED // LEVEL 5
+                            </div>
+                        </div>
+                        
+                        <!-- Bottom HUD controls & progress -->
+                        <div class="action-hud-bottom">
+                            <div class="action-controls">
+                                <button id="btn-action-play" class="action-hud-btn" aria-label="Play/Pause Action Feed">
+                                    <i data-lucide="pause" class="action-btn-icon"></i>
+                                </button>
+                                <button id="btn-action-mute" class="action-hud-btn" aria-label="Mute Action Feed">
+                                    <i data-lucide="volume-x" class="action-btn-icon"></i>
+                                </button>
+                            </div>
+                            <div class="action-video-progress-container">
+                                <div class="action-video-progress-bar" id="action-video-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Weapon Showcase Section -->
+        <section id="weapons" class="weapons-section section-padding">
+            <div class="hud-container">
+                <div class="section-header">
+                    <div class="hud-label">ARMORY // BALLISTICS SPECS</div>
+                    <h2 class="section-title">WEAPON SHOWCASE</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="armory-layout">
+                    <!-- Sidebar list -->
+                    <div class="weapons-selector">
+                        <button class="weapon-sel-btn active" data-weapon="acr">
+                            <span class="sel-num">M1.</span>
+                            <span class="sel-name">ACR 5.56 TACTICAL</span>
+                        </button>
+                        <button class="weapon-sel-btn" data-weapon="knife">
+                            <span class="sel-num">M2.</span>
+                            <span class="sel-name">TACTICAL COMBAT KNIFE</span>
+                        </button>
+                        <button class="weapon-sel-btn" data-weapon="pistol">
+                            <span class="sel-num">M3.</span>
+                            <span class="sel-name">USP .45 SIDEARM</span>
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Details Panel -->
+                    <div class="weapon-blueprint-card">
+                        <div class="blueprint-bg-lines"></div>
+                        <div class="blueprint-content">
+                            <div class="blueprint-main">
+                                <div class="weapon-meta">
+                                    <h3 class="weapon-title" id="wpn-name">ACR 5.56 TACTICAL</h3>
+                                    <span class="weapon-class" id="wpn-class">PRIMARY // ASSAULT RIFLE</span>
+                                </div>
+                                
+                                <div class="weapon-silhouette">
+                                    <div class="weapon-display-container">
+                                        <img id="wpn-img" src="C:/Users/gurunathan/.gemini/antigravity/brain/ded08ab9-221d-4daf-8989-c18e0141c267/acr_blueprint_1784395377806.png" class="blueprint-image" alt="ACR Blueprint">
+                                        <div class="weapon-image-glow"></div>
+                                        <div class="weapon-scanline"></div>
+                                    </div>
+                                    <div class="blueprint-telemetry" id="wpn-telemetry-container">
+                                        <span id="wpn-meta-cal">CALIBER: 5.56×45mm NATO</span>
+                                        <span id="wpn-meta-cap">MAG_CAP: 30 RDS</span>
+                                        <span id="wpn-meta-wt">WEIGHT: 3.6 KG</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Weapon stats -->
+                            <div class="weapon-stats-sidebar">
+                                <h4 class="sidebar-header font-mono">SPECIFICATIONS</h4>
+                                
+                                <div class="stat-progress-group">
+                                    <div class="stat-lbl">
+                                        <span>FIREPOWER</span>
+                                        <span id="wpn-stat-firepower-val">82%</span>
+                                    </div>
+                                    <div class="stat-track">
+                                        <div class="stat-fill" id="wpn-stat-firepower-bar" style="width: 82%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-progress-group">
+                                    <div class="stat-lbl">
+                                        <span>ACCURACY</span>
+                                        <span id="wpn-stat-accuracy-val">90%</span>
+                                    </div>
+                                    <div class="stat-track">
+                                        <div class="stat-fill" id="wpn-stat-accuracy-bar" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-progress-group">
+                                    <div class="stat-lbl">
+                                        <span>RANGE</span>
+                                        <span id="wpn-stat-range-val">76%</span>
+                                    </div>
+                                    <div class="stat-track">
+                                        <div class="stat-fill" id="wpn-stat-range-bar" style="width: 76%"></div>
+                                    </div>
+                                </div>
+                                <div class="stat-progress-group">
+                                    <div class="stat-lbl">
+                                        <span>MOBILITY</span>
+                                        <span id="wpn-stat-mobility-val">68%</span>
+                                    </div>
+                                    <div class="stat-track">
+                                        <div class="stat-fill" id="wpn-stat-mobility-bar" style="width: 68%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="weapon-desc font-mono" id="wpn-desc">
+                                    Custom configured modular assault rifle. Features suppressor integration for flash reduction, heavy optical targeting, and laser targeting module. Configured specifically for long covert incursions.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Timeline Section -->
+        <section id="timeline" class="timeline-section section-padding">
+            <div class="hud-container">
+                <div class="section-header">
+                    <div class="hud-label">CHRONOLOGICAL LOG // CHRONOLOGY</div>
+                    <h2 class="section-title">SERVICE TIMELINE</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="timeline-track">
+                    <div class="timeline-line"></div>
+                    
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-date font-mono">CL-01 // CO-FOUNDING</div>
+                            <h3 class="timeline-event-title">TASK FORCE 141 INCEPTION</h3>
+                            <p class="timeline-event-desc">
+                                Joins Captain John Price and General Shepherd in structuring an elite unit of special forces operators, designated Task Force 141, to counter transnational threats.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-date font-mono">CL-02 // INFILTRATION</div>
+                            <h3 class="timeline-event-title">OPERATION RIO DE JANEIRO</h3>
+                            <p class="timeline-event-desc">
+                                Leads the capture and interrogation of arms dealer contacts in Favela districts under high-stress perimeter firefights. Establishes critical link in global syndicate network.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-date font-mono">CL-03 // DECEPTION</div>
+                            <h3 class="timeline-event-title">THE SAFEHOUSE INCIDENT</h3>
+                            <p class="timeline-event-desc">
+                                Extracts intelligence data from Makarov's Caucasus safehouse. Survives betrayal by commanding officer Shepherd, triggering ghost operations and classified re-emergence.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Memories Section -->
+        <section id="memories" class="memories-section section-padding">
+            <div class="hud-container">
+                <div class="section-header">
+                    <div class="hud-label">ARCHIVED LOGS // RECONNAISSANCE</div>
+                    <h2 class="section-title">OPERATIONAL MEMORIES</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="memories-grid">
+                    <!-- Memory Card 1 -->
+                    <div class="memory-card">
+                        <div class="memory-image-container">
+                            <img src="asset/memories/memory-1.jpg" alt="Operation Kingfish" class="memory-img">
+                            <div class="scanlines"></div>
+                            <div class="card-hud-overlay">
+                                <span class="loc-code">LOC: KIEV, UA</span>
+                                <span class="date-code">YEAR: 2013</span>
+                            </div>
+                        </div>
+                        <div class="memory-content font-mono">
+                            <div class="memory-tag text-orange">// OPERATION KINGFISH</div>
+                            <p class="memory-desc">A classified joint TF141/Delta Force raid on a Ukrainian compound in search of Makarov. Faced severe tactical resistance, leaving deep operational scars.</p>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 2 -->
+                    <div class="memory-card">
+                        <div class="memory-image-container">
+                            <img src="asset/memories/memory-2.jpg" alt="Training Drills Hereford" class="memory-img">
+                            <div class="scanlines"></div>
+                            <div class="card-hud-overlay">
+                                <span class="loc-code">LOC: HEREFORD, UK</span>
+                                <span class="date-code">YEAR: 2015</span>
+                            </div>
+                        </div>
+                        <div class="memory-content font-mono">
+                            <div class="memory-tag text-orange">// CQB TRAINING DRILLS</div>
+                            <p class="memory-desc">Archived photo of close-quarters combat drill iterations inside the infamous Hereford killhouse, refining lethality and breacher tactics.</p>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 3 -->
+                    <div class="memory-card">
+                        <div class="memory-image-container">
+                            <img src="asset/memories/memory-3.jpg" alt="Caucasus Safehouse Recon" class="memory-img">
+                            <div class="scanlines"></div>
+                            <div class="card-hud-overlay">
+                                <span class="loc-code">LOC: CAUCASUS MTS</span>
+                                <span class="date-code">YEAR: 2016</span>
+                            </div>
+                        </div>
+                        <div class="memory-content font-mono">
+                            <div class="memory-tag text-orange">// CAUCASUS BASE RECON</div>
+                            <p class="memory-desc">A brief moment of tactical synchronization captured before the infiltration of Makarov's safehouse. An elite force prepared for any hazard.</p>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 4 -->
+                    <div class="memory-card">
+                        <div class="memory-image-container">
+                            <img src="asset/memories/memory-5.jpg" alt="Classified Recon Verdansk" class="memory-img">
+                            <div class="scanlines"></div>
+                            <div class="card-hud-overlay">
+                                <span class="loc-code">LOC: VERDANSK, UR</span>
+                                <span class="date-code">YEAR: 2019</span>
+                            </div>
+                        </div>
+                        <div class="memory-content font-mono">
+                            <div class="memory-tag text-orange">// CLASS_OVERWATCH_LOG</div>
+                            <p class="memory-desc">Long-range sniper surveillance overlooking frozen sectors. Operational objective: track and log unauthorized insurgent cargo movements.</p>
+                        </div>
+                    </div>
+
+                    <!-- Memory Card 5 -->
+                    <div class="memory-card">
+                        <div class="memory-image-container">
+                            <img src="asset/memories/Taskforce-141.jpg" alt="Task Force 141 Group" class="memory-img">
+                            <div class="scanlines"></div>
+                            <div class="card-hud-overlay">
+                                <span class="loc-code">LOC: CLASSIFIED</span>
+                                <span class="date-code">YEAR: ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="memory-content font-mono">
+                            <div class="memory-tag text-orange">// TASK FORCE 141 ROLL</div>
+                            <p class="memory-desc">An unofficial unit portrait representing the co-founders and elite operatives of the 141. A legacy built on trust, blood, and absolute secrecy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Decryption Terminal Section (Quotes) -->
+        <section id="terminal" class="terminal-section section-padding">
+            <div class="hud-container">
+                <div class="section-header">
+                    <div class="hud-label">ENCRYPTED COMMUNICATIONS // TELEMETRY</div>
+                    <h2 class="section-title">COMMAND INTEL TERMINAL</h2>
+                    <div class="header-line"></div>
+                </div>
+
+                <div class="terminal-frame">
+                    <div class="terminal-header">
+                        <div class="term-dots">
+                            <span class="term-dot-btn text-red">●</span>
+                            <span class="term-dot-btn text-yellow">●</span>
+                            <span class="term-dot-btn text-green">●</span>
+                        </div>
+                        <div class="terminal-title font-mono">root@tf141-node-secure:~</div>
+                    </div>
+                    <div class="terminal-body font-mono">
+                        <div class="terminal-log">
+                            <p><span class="text-green">system@tf141:~$</span> init_handshake --channel secure_audio</p>
+                            <p class="text-secondary">Connecting to satellite terminal 141-89-GHOST...</p>
+                            <p class="text-green">Connection established. AES-256 handshake success.</p>
+                            <p><span class="text-green">system@tf141:~$</span> decrypt_communications --target operator_quotes</p>
+                            <p class="text-orange">[DECRYPTION COMPLETE]</p>
+                        </div>
+                        <div class="terminal-quote-output">
+                            <p class="quote-text text-green" id="terminal-text">> "Every operation leaves a mark; only the prepared see it coming."</p>
+                        </div>
+                        <div class="terminal-input-line">
+                            <span class="text-green">system@tf141:~$</span> <span class="cursor-blink">█</span>
+                        </div>
+                    </div>
+                    <div class="terminal-footer">
+                        <button class="terminal-btn font-mono" id="btn-decrypt-quote"><i data-lucide="key-round" class="inline-icon"></i> DECRYPT NEXT INTEL</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="hud-footer">
+        <div class="hud-container footer-grid">
+            <div class="footer-brand font-mono">
+                <h3>GHOST // TASK FORCE 141</h3>
+                <p>This is an inspired cinematic digital experience dedicated to the character. Built with high-fidelity telemetry, motion, and assets. All files are classified under Protocol 5.</p>
+                <div class="contact-email font-mono" style="margin-top: 15px; font-size: 0.85rem; color: var(--accent-orange);">
+                    CONTACT: <a href="mailto:vengaigurunathan@gmail.com" style="color: var(--accent-green-bright); text-decoration: none; border-bottom: 1px dotted var(--accent-green-bright);">vengaigurunathan@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 class="font-mono text-orange">QUICK JUMP</h4>
+                <ul>
+                    <li><a href="#hero">Operational Status</a></li>
+                    <li><a href="#dossier">Biographical Profile</a></li>
+                    <li><a href="#missions">Mission Records</a></li>
+                    <li><a href="#cctv">CCTV Feed</a></li>
+                    <li><a href="#action-feed">Action COD Feed</a></li>
+                    <li><a href="#weapons">Armory blueprint</a></li>
+                    <li><a href="#timeline">Chronological Log</a></li>
+                    <li><a href="#memories">Operational Memories</a></li>
+                    <li><a href="#terminal">Intel Decrypt</a></li>
+                </ul>
+            </div>
+            <div class="footer-status font-mono">
+                <div class="footer-status-row">
+                    <span class="lbl">NETWORK STATE:</span>
+                    <span class="val text-green">SECURED</span>
+                </div>
+                <div class="footer-status-row">
+                    <span class="lbl">CLEARANCE LVL:</span>
+                    <span class="val text-red">LEVEL 5 ACCESS</span>
+                </div>
+                <div class="footer-status-row">
+                    <span class="lbl">ENCRYPTION:</span>
+                    <span class="val">TLS_AES_256_GCM_SHA384</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom hud-container">
+            <div class="footer-copyright">
+                &copy; 2026 TASK FORCE 141 // COVERT RECONNAISSANCE. NO COPYRIGHTED ASSETS DISTRIBUTED.
+            </div>
+            <div class="footer-system-clock" id="system-time">
+                TIME: 12:00:00 UTC
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tactical Media Deck Widget -->
+    <div id="media-deck-widget" class="media-deck-collapsed">
+        <button id="btn-toggle-deck" class="deck-trigger-btn" aria-label="Toggle Media Deck">
+            <span class="pulse-ring"></span>
+            <i data-lucide="radio" class="deck-icon"></i>
+            <span class="deck-trigger-text font-mono">MEDIA DECK</span>
+        </button>
+        
+        <div class="deck-panel">
+            <div class="deck-header">
+                <div class="deck-header-title">
+                    <span class="dot-green-blink"></span>
+                    <h3 class="font-mono">AN/PRC-141 RECEIVER</h3>
+                </div>
+                <button id="btn-close-deck" class="deck-close-btn" aria-label="Close Media Deck">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div class="deck-body">
+                <!-- Channel 1: Hero Feed -->
+                <div class="deck-channel" id="chan-hero">
+                    <div class="chan-meta">
+                        <span class="chan-num font-mono">CH.01</span>
+                        <span class="chan-title">HERO FEED</span>
+                    </div>
+                    <div class="chan-visualizer">
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                    </div>
+                    <div class="chan-controls">
+                        <button class="chan-btn btn-play" data-target="hero" title="Play/Pause">
+                            <i data-lucide="pause"></i>
+                        </button>
+                        <button class="chan-btn btn-mute" data-target="hero" title="Toggle Mute">
+                            <i data-lucide="volume-x"></i>
+                        </button>
+                        <button class="chan-btn btn-loop active" data-target="hero" title="Toggle Loop">
+                            <i data-lucide="repeat"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Channel 2: Field Intel -->
+                <div class="deck-channel" id="chan-intel">
+                    <div class="chan-meta">
+                        <span class="chan-num font-mono">CH.02</span>
+                        <span class="chan-title">FIELD INTEL</span>
+                    </div>
+                    <div class="chan-visualizer">
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                    </div>
+                    <div class="chan-controls">
+                        <button class="chan-btn btn-play" data-target="intel" title="Play/Pause">
+                            <i data-lucide="pause"></i>
+                        </button>
+                        <button class="chan-btn btn-mute" data-target="intel" title="Toggle Mute">
+                            <i data-lucide="volume-x"></i>
+                        </button>
+                        <button class="chan-btn btn-loop active" data-target="intel" title="Toggle Loop">
+                            <i data-lucide="repeat"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Channel 3: Archive Feed -->
+                <div class="deck-channel" id="chan-archive">
+                    <div class="chan-meta">
+                        <span class="chan-num font-mono">CH.03</span>
+                        <span class="chan-title">ARCHIVE FEED</span>
+                    </div>
+                    <div class="chan-visualizer">
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                        <span class="v-bar"></span>
+                    </div>
+                    <div class="chan-controls">
+                        <button class="chan-btn btn-play" data-target="archive" title="Play/Pause">
+                            <i data-lucide="pause"></i>
+                        </button>
+                        <button class="chan-btn btn-mute" data-target="archive" title="Toggle Mute">
+                            <i data-lucide="volume-x"></i>
+                        </button>
+                        <button class="chan-btn btn-loop active" data-target="archive" title="Toggle Loop">
+                            <i data-lucide="repeat"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="deck-footer font-mono">
+                <span>FREQ: 141.95 MHZ</span>
+                <span>VOL: <span id="deck-vol-indicator">80%</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memories Lightbox Overlay -->
+    <div id="memory-lightbox" class="lightbox-overlay">
+        <div class="lightbox-container">
+            <div class="lightbox-hud-top font-mono">
+                <span class="text-green">// FILE_VIEWER //</span>
+                <span class="text-secondary" id="lightbox-filename">IMAGE_01.JPG</span>
+                <button id="btn-close-lightbox" class="lightbox-close font-mono"><i data-lucide="x" class="inline-icon"></i> CLOSE</button>
+            </div>
+            <div class="lightbox-content-frame">
+                <div class="lightbox-bracket top-left"></div>
+                <div class="lightbox-bracket top-right"></div>
+                <div class="lightbox-bracket bottom-left"></div>
+                <div class="lightbox-bracket bottom-right"></div>
+                <img id="lightbox-image" src="" alt="Dossier Memory Image">
+                <div class="lightbox-scanner"></div>
+            </div>
+            <div class="lightbox-hud-bottom font-mono">
+                <span class="text-orange" id="lightbox-caption">DESCRIPTION</span>
+                <span>SYSTEM STATE: SAFE_RENDER</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GSAP & ScrollTrigger Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
