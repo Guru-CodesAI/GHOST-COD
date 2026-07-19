@@ -21,6 +21,3 @@ node_modules/
 package-lock.json
 dist/
 build/
-
-# Exclude large video file
-asset/*All_Simon_Ghost_Riley.mp4
