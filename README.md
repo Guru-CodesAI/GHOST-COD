@@ -2,8 +2,8 @@
 ## 🛰️ SATELLITE COMMS LINKED // AN/PRC-141 RECEIVER ONLINE
 
 ```
-         .---.
-        /     \
+          .---.
+        /      \
         | () () |  "Every operation leaves a mark...
          \  ^  /    Only the prepared see it coming."
           |||||
