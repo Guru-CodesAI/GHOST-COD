@@ -21,3 +21,6 @@ node_modules/
 package-lock.json
 dist/
 build/
+
+# Exclude heavy video files exceeding GitHub's 100MB limit
+asset/[TubePull] All_Simon_Ghost_Riley.mp4
