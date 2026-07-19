@@ -1515,21 +1515,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // GSAP ScrollTrigger for Memories Grid Cards
+    // GSAP ScrollTrigger for Memories Grid Cards (triggered individually for device compatibility)
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.from(".memory-card", {
-            scrollTrigger: {
-                trigger: "#memories",
-                start: "top 75%",
-                toggleActions: "play none none none"
-            },
-            opacity: 0,
-            y: 50,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power2.out"
+        gsap.utils.toArray(".memory-card").forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                y: 40,
+                duration: 0.6,
+                ease: "power2.out"
+            });
         });
     }
+
+    // Refresh ScrollTrigger calculations after full page assets load
+    window.addEventListener('load', () => {
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+        }
+    });
     
     // Initial sync
     setTimeout(syncDeckControls, 500);

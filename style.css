@@ -41,6 +41,7 @@ html {
     font-size: 16px;
     background-color: var(--bg-primary);
     color: var(--text-primary);
+    scroll-padding-top: 98px; /* Offset for sticky header and progress bar */
 }
 
 body {
@@ -427,6 +428,7 @@ a {
     z-index: 999;
     padding: 40px 20px;
     transition: left 0.3s ease;
+    overflow-y: auto; /* Enable scroll if nav links exceed viewport height */
 }
 
 .mobile-nav-drawer.open {
@@ -1132,9 +1134,12 @@ a {
 .dossier-paper {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
+    min-height: 100%;
     position: relative;
     z-index: 2;
+    width: 100%;
+    max-width: 100%;
 }
 
 .folder-header {
@@ -1143,6 +1148,7 @@ a {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px;
+    flex-shrink: 0; /* Prevent header from shrinking when body text is long */
 }
 
 .folder-title-block {
@@ -1282,6 +1288,8 @@ a {
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .transcript-section {
@@ -1322,6 +1330,8 @@ a {
     color: var(--accent-orange);
     font-style: italic;
     line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .dossier-laser {
@@ -2462,6 +2472,16 @@ a {
     .weapon-sel-btn {
         flex-shrink: 0;
     }
+    .blueprint-content {
+        grid-template-columns: 1fr;
+    }
+    .blueprint-main {
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-color) !important;
+    }
+    .weapon-stats-sidebar {
+        border-top: 1px solid var(--border-color);
+    }
     .footer-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -2488,15 +2508,31 @@ a {
     .section-title {
         font-size: 2.2rem;
     }
-    .blueprint-content {
-        grid-template-columns: 1fr;
-    }
-    .blueprint-main {
-        border-right: none !important;
+    .tab-buttons {
+        overflow-x: auto;
+        white-space: nowrap;
+        flex-wrap: nowrap !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        justify-content: flex-start !important;
         border-bottom: 1px solid var(--border-color) !important;
+        gap: 0 !important;
+        margin-bottom: 20px;
     }
-    .weapon-stats-sidebar {
-        border-top: 1px solid var(--border-color);
+    .tab-buttons::-webkit-scrollbar {
+        display: none;
+    }
+    .tab-btn {
+        flex-shrink: 0 !important;
+        padding: 10px 16px !important;
+        font-size: 0.85rem !important;
+        border: none !important;
+    }
+    .tab-btn.active::after {
+        display: block !important;
+    }
+    .hud-footer {
+        padding-bottom: 120px !important; /* Offset for floating media deck widget */
     }
     .action-hud-elements {
         padding: 80px 20px 20px 20px !important;
@@ -2604,26 +2640,6 @@ a {
     .hero-tagline {
         font-size: 0.9rem !important;
         letter-spacing: 2px !important;
-    }
-    .tab-buttons {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 8px !important;
-        border-bottom: none !important;
-    }
-    .tab-btn {
-        padding: 8px 12px !important;
-        font-size: 0.8rem !important;
-        border: 1px solid var(--border-color) !important;
-        border-radius: 3px !important;
-    }
-    .tab-btn.active {
-        background: var(--accent-green-alpha) !important;
-        border-color: var(--accent-green-bright) !important;
-        box-shadow: var(--glow-green) !important;
-    }
-    .tab-btn.active::after {
-        display: none !important;
     }
     .mission-dossier-card {
         padding: 15px !important;
