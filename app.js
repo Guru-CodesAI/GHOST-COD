@@ -42,18 +42,20 @@ window.addEventListener('scroll', handleScrollMuting);
 // 2. HERO VIDEO SCROLLING PARALLAX & GLITCH EFFECT
 // ==========================================================================
 // Zoom, blur, and fade out background video as user scrolls down
-gsap.to(".video-background-container", {
-    scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-    },
-    scale: 1.15,
-    filter: "blur(6px)",
-    opacity: 0.15,
-    y: 60
-});
+if (window.innerWidth > 768) {
+    gsap.to(".video-background-container", {
+        scrollTrigger: {
+            trigger: "#hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        },
+        scale: 1.15,
+        filter: "blur(6px)",
+        opacity: 0.15,
+        y: 60
+    });
+}
 
 // Fade out hero content slightly faster than the background
 gsap.to(".hero-content", {
@@ -1193,6 +1195,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof sysAudio !== 'undefined') {
                 sysAudio.playUIConfirm();
             }
+
+            // Explicitly play all main videos upon interaction to bypass mobile autoplay blocks
+            const heroVid = document.querySelector('.hero-video');
+            const cctvPlayer = document.getElementById('cctv-player');
+            const actionVid = document.getElementById('action-video');
+
+            if (heroVid) {
+                heroVid.play().catch(err => console.log("Hero video play error:", err));
+            }
+            if (cctvPlayer) {
+                cctvPlayer.play().catch(err => console.log("CCTV video play error:", err));
+            }
+            if (actionVid) {
+                actionVid.play().catch(err => console.log("Action video play error:", err));
+            }
         });
     }
 
@@ -1226,6 +1243,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressFill = document.getElementById('action-video-progress');
 
     if (actionVid) {
+        // Fallback handler if primary video source fails to load
+        actionVid.addEventListener('error', () => {
+            console.log("Action video failed to load, trying local fallback...");
+            const fallbackPath = "asset/library/GhostAction-1.mp4";
+            if (!actionVid.src.includes(fallbackPath)) {
+                actionVid.src = fallbackPath;
+                actionVid.load();
+                actionVid.play().catch(e => console.log("Fallback playback failed:", e));
+            }
+        });
+
         // Sync initial play status
         if (btnActionPlay) {
             btnActionPlay.innerHTML = actionVid.paused ? '<i data-lucide="play" class="action-btn-icon"></i>' : '<i data-lucide="pause" class="action-btn-icon"></i>';
