@@ -1,82 +1,476 @@
-# 💀 OPERATIONAL INTEL // DECLASSIFIED FILES: PROJECT GHOST-COD
-## 🛰️ SATELLITE COMMS LINKED // AN/PRC-141 RECEIVER ONLINE
+# ██████████████████████████████████████████████████████████
+#            TASK FORCE 141 // CLASSIFIED DATABASE
+#              OPERATION : GHOST PROTOCOL
+#            SECURITY CLEARANCE : LEVEL OMEGA
+# ██████████████████████████████████████████████████████████
+
+> "Some soldiers leave footprints.
+> Legends leave shadows."
+
+---
+
+## SYSTEM STATUS
+
+```diff
++ SATELLITE LINK .............. ONLINE
++ ENCRYPTION .................. AES-256
++ DATABASE .................... DECLASSIFIED
++ OPERATOR FILE ............... AVAILABLE
++ MISSION ARCHIVE ............. READY
++ MEDIA SERVER ................. CONNECTED
++ TACTICAL HUD ................ ACTIVE
+```
+
+---
+
+# BOOT SEQUENCE
 
 ```
-          .---.
-        /      \
-        | () () |  "Every operation leaves a mark...
-         \  ^  /    Only the prepared see it coming."
-          |||||
-          |||||
+INITIALIZING...
+
+□□□□□□□□□□
+
+Loading Battlefield Database...
+
+■■□□□□□□□□
+
+Decrypting Mission Files...
+
+■■■■□□□□□□
+
+Authenticating Operator...
+
+■■■■■■■■□□
+
+Access Granted.
+
+Welcome, Operator.
 ```
 
-***
+---
 
-### 🌐 LOG ENTRY: 04:36 UTC // CAUCASUS SECTOR
-*The snow is falling thick over the ridge, masking the hum of a tactical server rack humming inside an abandoned, cold war bunker. A single monitor blinks in the dark, green phosphorus scanlines painting the damp concrete walls. A user inputs terminal handshake commands. Slowly, the system decrypts. The dossier of Simon "Ghost" Riley slides into view...*
+# TRANSMISSION LOG
+
+UTC 04:36
+
+Unknown Location
+
+Northern Europe
+
+Snow falls silently over a forgotten military outpost.
+
+A cold wind moves through broken concrete corridors where rusted steel doors have remained sealed for years.
+
+Hidden beneath the mountain lies an abandoned intelligence bunker.
+
+The lights flicker.
+
+Emergency generators slowly awaken.
+
+Dust drifts through the darkness.
+
+Somewhere...
+
+An encrypted terminal begins receiving a transmission.
+
+A green cursor blinks.
+
+One command is entered.
+
+```
+ACCESS GHOST
+```
+
+The monitors flash.
+
+Military authentication protocols begin.
+
+Encrypted files unlock one after another.
+
+Satellite communication establishes contact.
+
+The archives open.
+
+The legend returns.
 
 ---
 
-## 📖 ACT I: THE LEGEND OF SIMON "GHOST" RILEY
+# WHO IS GHOST?
 
-Before he was a legend, he was a man left for dead. Buried alive in a desert grave, Simon Riley had to strip away his own identity to survive. He crawled out of the sand not as a soldier, but as a phantom. He became the skull-masked operator who speaks in hushed whispers over encrypted channels—the phantom blade of **Task Force 141**.
+Some soldiers fight for medals.
 
-This interactive system is a digital memorial to his ghost-like steps. Designed as a field-ready cybernetic HUD, it tracks his telemetry, stores his declassified service tab files, and intercepts live feeds of his movements across the globe.
+Others fight because they have no other choice.
 
----
+Simon "Ghost" Riley became one of the most recognizable operators in the Modern Warfare universe because of his discipline, resilience, and mysterious identity beneath the iconic skull mask.
 
-## 🛠️ ACT II: THE INTEL SYSTEM BLUEPRINT
-*The console lists operational sub-modules designed for high-fidelity battlefield intelligence:*
+His presence is defined not only by tactical skill but by calm decision-making under pressure and unwavering commitment to the mission.
 
-### 📡 Module 01: The AN/PRC-141 Receiver (Media Deck)
-To capture his whispers in the field, we built the **AN/PRC-141 Tactical Receiver**. It acts as a custom Web Audio context decoder, allowing commanders to listen in on three distinct channels:
-*   **CH.01 [HERO FEED]**: The primary tactical signal, auto-playing the baseline cinematic track.
-*   **CH.02 [FIELD INTEL]**: Encrypted audio intercept logs.
-*   **CH.03 [ARCHIVE FEED]**: Covert historical audio tracks.
-*   *A visualizer bounce bar responds dynamically when channels are engaged.*
-
-### 👁️ Module 02: CCTV Command Monitor
-A grid of five live feed surveillance systems, filtering feed signals through a simulated CRT scanline lens. Click between `CAM-01` through `CAM-05` to adjust camera feeds, tracking tactical infiltrations and perimeter defense operations in real-time.
-
-### 📐 Module 03: Ballistic Armory Specification
-Step into the armory to view blueprint schematics of his primary loadouts, including the **ACR 5.56 Tactical** and the **Tactical Combat Knife**. Interactive cyan blueprints reveal details on fire rate, range, and lethality, accompanied by horizontal spec bars.
+This project is a fan-made interactive archive that explores that legacy through cinematic storytelling, original visual design, and immersive web technology.
 
 ---
 
-## 📂 ACT III: OPERATIONAL MEMORIES // DECLASSIFIED ARCHIVE
+# PROJECT OBJECTIVE
 
-Under **Protocol 5**, a secure photo lightbox container holds five frozen frame captures from Ghost's historical deployments:
-1.  **MUSEUM RECORD**: Elite 141 taskforce combat readiness drills.
-2.  **URZIKSTAN DESERT**: Covert operations on the dusty dunes.
-3.  **FAVELA INFILTRATION**: Tracking hostile HVTs through narrow Rio alleyways.
-4.  **OVERWATCH PROTOCOL**: Sniper surveillance logs in frozen tundra sectors.
-5.  **TASK FORCE 141 ROLL**: The co-founders' unofficial unit portrait.
+GHOST is not a conventional website.
 
----
+It is designed as an interactive military archive.
 
-## 🚀 BOOTING THE SYSTEM (LOCAL DEPLOYMENT)
+Visitors progress through classified files, mission records, tactical interfaces, cinematic environments, and original commentary inspired by the character's world.
 
-*To establish local communications with the satellite terminal:*
+Every animation serves the narrative.
 
-1.  **Acquire coordinates**:
-    ```bash
-    git clone https://github.com/Guru-CodesAI/GHOST-COD.git
-    cd GHOST-COD
-    ```
-2.  **Initialize server link**:
-    Because the telemetry HUD loads dynamic audio contexts, you must serve it over HTTP:
-    *   **Python**: `python -m http.server 8000`
-    *   **Node.js**: `npx live-server`
-3.  **Access the interface**:
-    Launch your browser and establish connection at `http://localhost:8000`.
+Every transition represents a mission.
+
+Every interaction feels like operating inside a secure command center.
 
 ---
 
-## 🔒 TRANSMISSION PROTOCOLS
-*   **Clearance Level**: 5 (Classified)
-*   **Git Security**: Active [.gitignore](file:///.gitignore) restricts transmission of local VS Code settings, logs, and sensitive data.
-*   **Secure Direct Uplink**: For support, report anomalies or bugs via secure email channels:
-    ✉️ **Secure Comms**: `vengaigurunathan@gmail.com`
+# EXPERIENCE OVERVIEW
 
-***
-**[LOG CLOSED] SYSTEM LOCK IN EFFECT // GO DARK**
+Mission Authentication
+
+↓
+
+Encrypted Boot Sequence
+
+↓
+
+Satellite Connection
+
+↓
+
+Interactive Hero Experience
+
+↓
+
+Operator Profile
+
+↓
+
+Mission Timeline
+
+↓
+
+Operational Analysis
+
+↓
+
+Tactical Equipment
+
+↓
+
+Media Archive
+
+↓
+
+Intelligence Reports
+
+↓
+
+Mission Complete
+
+---
+
+# OPERATION MODULES
+
+## MODULE 01
+
+### CLASSIFIED HERO TERMINAL
+
+The landing sequence recreates the feeling of connecting to a secure military intelligence system.
+
+Features
+
+• Fullscreen cinematic hero
+• Atmospheric battlefield video
+• Dynamic weather
+• Volumetric fog
+• Interactive lighting
+• Mouse-responsive camera
+• Tactical interface
+• Real-time particles
+
+---
+
+## MODULE 02
+
+### OPERATOR DOSSIER
+
+Learn about Ghost's role, personality, leadership style, and importance within Task Force 141 through original editorial content and interactive profile cards.
+
+Includes
+
+• Character overview
+• Tactical profile
+• Equipment analysis
+• Psychological observations
+• Legacy
+
+---
+
+## MODULE 03
+
+### MISSION ARCHIVE
+
+A chronological collection of operations presented as classified military documents.
+
+Each mission contains
+
+Mission Code
+
+Objective
+
+Operational Theatre
+
+Threat Assessment
+
+Intelligence Notes
+
+Outcome
+
+Strategic Impact
+
+---
+
+## MODULE 04
+
+### ARMORY DATABASE
+
+Explore interactive equipment displays inspired by modern military technology.
+
+Includes
+
+• Tactical rifle showcase
+• Sidearm analysis
+• Combat knife
+• Tactical gear
+• Communication equipment
+
+Interactive
+
+• 3D rotation
+• Blueprint overlays
+• Technical specifications
+• Animated detail panels
+
+---
+
+## MODULE 05
+
+### MEDIA ARCHIVE
+
+A cinematic library inspired by military operations.
+
+Features
+
+• Hero videos
+• Atmospheric edits
+• Original fan content
+• Interactive playback
+• CRT surveillance interface
+• Dynamic thumbnails
+
+---
+
+## MODULE 06
+
+### INTELLIGENCE REPORTS
+
+A collection of original blog articles exploring
+
+• Character analysis
+• Tactical decision making
+• Mission breakdowns
+• Military aesthetics
+• Storytelling
+• Game design inspiration
+
+---
+
+## MODULE 07
+
+### TACTICAL COMMAND CENTER
+
+Real-time interactive dashboard featuring
+
+Mission Progress
+
+Radar
+
+Status Indicators
+
+Weather
+
+Coordinates
+
+Communications
+
+Threat Level
+
+System Diagnostics
+
+---
+
+# TECHNOLOGY STACK
+
+Frontend
+
+• Next.js
+• React
+• TypeScript
+
+Styling
+
+• Tailwind CSS
+• CSS Variables
+• Glass Morphism
+
+Animation
+
+• GSAP
+• Framer Motion
+• Lenis
+
+3D
+
+• Three.js
+• React Three Fiber
+• Drei
+
+Visual Effects
+
+• Bloom
+• Depth of Field
+• Film Grain
+• Volumetric Fog
+• GPU Particles
+• Dynamic Lighting
+
+Performance
+
+• Draco Compression
+• KTX2 Textures
+• Lazy Loading
+• Code Splitting
+• Image Optimization
+
+Deployment
+
+• GitHub
+• Vercel
+
+---
+
+# VISUAL LANGUAGE
+
+Color Palette
+
+████ Black
+
+████ Gunmetal
+
+████ Smoke
+
+████ Military Green
+
+████ Tactical Blue
+
+████ Warning Orange
+
+████ White
+
+---
+
+# DESIGN PRINCIPLES
+
+Every interface should feel
+
+Military
+
+Minimal
+
+Immersive
+
+Photorealistic
+
+Cinematic
+
+Responsive
+
+Accessible
+
+Performance Optimized
+
+---
+
+# LOCAL DEPLOYMENT
+
+Clone Repository
+
+```bash
+git clone https://github.com/Guru-CodesAI/GHOST-COD.git
+
+cd GHOST-COD
+```
+
+Install
+
+```bash
+npm install
+```
+
+Development
+
+```bash
+npm run dev
+```
+
+Production
+
+```bash
+npm run build
+
+npm start
+```
+
+---
+
+# DISCLAIMER
+
+GHOST is an independent, non-commercial fan project created for educational and portfolio purposes.
+
+Call of Duty, Modern Warfare, Simon "Ghost" Riley, Task Force 141, and all related intellectual property belong to their respective owners.
+
+This project is not affiliated with, endorsed by, or sponsored by Activision.
+
+All original code, interface design, animations, web engineering, and editorial content are independently created.
+
+---
+
+# END OF TRANSMISSION
+
+```
+██████████████████████████████████████████
+
+MISSION STATUS
+
+COMPLETE
+
+DATABASE CLOSED
+
+SATELLITE LINK TERMINATED
+
+OPERATOR DISCONNECTED
+
+SIGNAL LOST
+
+██████████████████████████████████████████
+```
+
+> "Some legends are remembered by history.
+>
+> Others are remembered by those who stood beside them."
+
+```
+LOG // CLOSED
+```
