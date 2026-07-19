@@ -39,6 +39,8 @@ git commit -m "Classified release: GHOST-COD high-fidelity responsive HUD"
 
 echo.
 echo [4/4] Transmitting telemetry stream to GitHub...
+echo Pulling latest remote changes to synchronize branch...
+git pull origin main --rebase
 echo Please enter credentials if prompted.
 echo.
 git push -u origin main
