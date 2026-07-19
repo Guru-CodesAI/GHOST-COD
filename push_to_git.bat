@@ -29,6 +29,11 @@ git remote add origin https://github.com/Guru-CodesAI/GHOST-COD.git
 git branch -M main
 
 echo [3/4] Indexing and committing declassified dossier files...
+if not exist "e:\SGR\asset" mkdir "e:\SGR\asset"
+echo Copying tactical weapon blueprint images to asset folder...
+copy /y "C:\Users\gurunathan\.gemini\antigravity\brain\ded08ab9-221d-4daf-8989-c18e0141c267\acr_blueprint_1784395377806.png" "e:\SGR\asset\acr_blueprint.png" >nul
+copy /y "C:\Users\gurunathan\.gemini\antigravity\brain\ded08ab9-221d-4daf-8989-c18e0141c267\knife_blueprint_1784395391069.png" "e:\SGR\asset\knife_blueprint.png" >nul
+copy /y "C:\Users\gurunathan\.gemini\antigravity\brain\ded08ab9-221d-4daf-8989-c18e0141c267\usp_blueprint_1784395409539.png" "e:\SGR\asset\usp_blueprint.png" >nul
 git add .
 git commit -m "Classified release: GHOST-COD high-fidelity responsive HUD"
 
@@ -36,7 +41,7 @@ echo.
 echo [4/4] Transmitting telemetry stream to GitHub...
 echo Please enter credentials if prompted.
 echo.
-git push -u origin main
+git push -f -u origin main
 
 echo.
 echo =========================================================

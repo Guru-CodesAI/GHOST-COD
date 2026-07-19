@@ -463,7 +463,7 @@ const weaponData = {
         caliber: "5.56×45mm NATO",
         mag: "30 RDS",
         weight: "3.6 KG",
-        img: "C:/Users/gurunathan/.gemini/antigravity/brain/ded08ab9-221d-4daf-8989-c18e0141c267/acr_blueprint_1784395377806.png"
+        img: "asset/acr_blueprint.png"
     },
     knife: {
         name: "TACTICAL COMBAT KNIFE",
@@ -473,7 +473,7 @@ const weaponData = {
         caliber: "N/A (CQC)",
         mag: "UNLIMITED",
         weight: "0.28 KG",
-        img: "C:/Users/gurunathan/.gemini/antigravity/brain/ded08ab9-221d-4daf-8989-c18e0141c267/knife_blueprint_1784395391069.png"
+        img: "asset/knife_blueprint.png"
     },
     pistol: {
         name: "USP .45 SIDEARM",
@@ -483,7 +483,7 @@ const weaponData = {
         caliber: ".45 ACP",
         mag: "12 RDS",
         weight: "1.1 KG",
-        img: "C:/Users/gurunathan/.gemini/antigravity/brain/ded08ab9-221d-4daf-8989-c18e0141c267/usp_blueprint_1784395409539.png"
+        img: "asset/usp_blueprint.png"
     }
 };
 
