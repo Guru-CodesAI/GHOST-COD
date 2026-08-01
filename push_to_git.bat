@@ -30,7 +30,7 @@ git branch -M main
 
 echo [3/4] Indexing and committing declassified dossier files...
 git add .
-git commit -m "SEO: Add sitemap.xml, robots.txt, canonical tag, and Google Search Console indexing files"
+git commit -m "SEO: Clean XML sitemap formatting for Google Search Console compliance"
 
 echo.
 echo [4/4] Transmitting telemetry stream to GitHub...
