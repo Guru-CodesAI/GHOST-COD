@@ -30,7 +30,7 @@ git branch -M main
 
 echo [3/4] Indexing and committing declassified dossier files...
 git add .
-git commit -m "SEO Fix: Remove cleanUrls redirect and set direct XML headers in vercel.json"
+git commit -m "SEO Optimization: Add OpenGraph, Twitter Cards, and Schema.org JSON-LD structured data"
 
 echo.
 echo [4/4] Transmitting telemetry stream to GitHub...
