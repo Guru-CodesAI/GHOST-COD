@@ -1,8 +1,20 @@
 // Initialize Lucide Icons
 lucide.createIcons();
 
-// Register GSAP ScrollTrigger Plugin
+// Register GSAP ScrollTrigger Plugin & Mobile Config
 gsap.registerPlugin(ScrollTrigger);
+if (typeof ScrollTrigger !== 'undefined') {
+    ScrollTrigger.config({ ignoreMobileResize: true });
+}
+
+// Dynamic Mobile Viewport Height Calculation (--vh)
+function setVhVariable() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+window.addEventListener('resize', setVhVariable);
+window.addEventListener('orientationchange', setVhVariable);
+setVhVariable();
 
 // ==========================================================================
 // 1. SCROLL PROGRESS & DECRYPTION VALUE
@@ -1157,6 +1169,9 @@ function initAudioOnInteraction(e) {
     
     // Remove engagement listeners
     document.removeEventListener('click', initAudioOnInteraction);
+    document.removeEventListener('pointerdown', initAudioOnInteraction);
+    document.removeEventListener('touchstart', initAudioOnInteraction);
+    document.removeEventListener('touchend', initAudioOnInteraction);
     document.removeEventListener('scroll', initAudioOnInteraction);
 }
 
@@ -1171,8 +1186,11 @@ if (storedMute === 'false') {
     sysAudio.isMuted = false;
 }
 
-// Attach gesture and scrolling triggers
+// Attach gesture and scrolling triggers (including touch/pointer for Mobile Web Audio unlock)
 document.addEventListener('click', initAudioOnInteraction);
+document.addEventListener('pointerdown', initAudioOnInteraction);
+document.addEventListener('touchstart', initAudioOnInteraction);
+document.addEventListener('touchend', initAudioOnInteraction);
 document.addEventListener('scroll', initAudioOnInteraction);
 
 // Bind header controls
@@ -1181,7 +1199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const initOverlay = document.getElementById('hud-init-overlay');
     const initBtn = document.getElementById('btn-init-terminal');
     if (initOverlay && initBtn) {
-        initBtn.addEventListener('click', (e) => {
+        const handleInitAction = (e) => {
             e.stopPropagation();
             
             // Initialize Audio
@@ -1210,7 +1228,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (actionVid) {
                 actionVid.play().catch(err => console.log("Action video play error:", err));
             }
-        });
+        };
+
+        initBtn.addEventListener('click', handleInitAction);
+        initBtn.addEventListener('touchstart', handleInitAction, { passive: true });
     }
 
     updateMuteUI();

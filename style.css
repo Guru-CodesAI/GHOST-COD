@@ -3296,4 +3296,334 @@ a {
     padding-top: 10px;
 }
 
+/* ==========================================================================
+   MOBILE & CROSS-PLATFORM RESPONSIVE STYLES
+   ========================================================================== */
+
+/* Dynamic viewport height fallback for mobile browsers */
+:root {
+    --vh: 1vh;
+}
+
+.hero-section,
+.full-screen-video-container,
+.hud-init-overlay,
+.crt-overlay,
+.hud-grid-overlay,
+.lightbox-overlay {
+    height: 100vh;
+    height: 100dvh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+body.hud-locked {
+    height: 100vh !important;
+    height: 100dvh !important;
+    height: calc(var(--vh, 1vh) * 100) !important;
+}
+
+/* Touch Action Optimization */
+button,
+a,
+.nav-link,
+.mobile-nav-link,
+.tab-btn,
+.mission-tab-btn,
+.feed-item,
+.weapon-sel-btn,
+.memory-card,
+.action-hud-btn,
+.lightbox-close,
+.btn-init-terminal {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Base Responsive Typography */
+.glitch-text {
+    font-size: clamp(2.8rem, 10vw, 7.5rem);
+    letter-spacing: clamp(4px, 2vw, 12px);
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+/* Breakpoint: Tablets & Small Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+    .dossier-grid {
+        grid-template-columns: 320px 1fr;
+        gap: 30px;
+    }
+
+    .dossier-layout {
+        grid-template-columns: 260px 1fr;
+        gap: 20px;
+    }
+
+    .cctv-dashboard {
+        grid-template-columns: 1fr 260px;
+        gap: 20px;
+    }
+
+    .armory-layout {
+        grid-template-columns: 240px 1fr;
+        gap: 20px;
+    }
+
+    .blueprint-content {
+        grid-template-columns: 1fr 240px;
+    }
+}
+
+/* Breakpoint: Mobile Devices & Tablets (<= 868px) */
+@media (max-width: 868px) {
+    /* Header & Navigation */
+    .hud-header {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .scroll-progress-container {
+        top: 60px;
+        height: 14px;
+        font-size: 0.6rem;
+    }
+
+    .mobile-nav-drawer {
+        top: 60px;
+        height: calc(100vh - 60px);
+        height: calc(100dvh - 60px);
+        height: calc((var(--vh, 1vh) * 100) - 60px);
+    }
+
+    /* Hero Section */
+    .hero-content {
+        margin-top: 20px;
+    }
+
+    .hero-tagline {
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+    }
+
+    .hud-telemetry {
+        flex-direction: column;
+        gap: 8px;
+        font-size: 0.75rem;
+    }
+
+    .hud-corners .corner-item {
+        padding: 8px 12px;
+        font-size: 0.6rem;
+    }
+
+    .hud-corners .top-left, .hud-corners .top-right {
+        top: 75px;
+    }
+
+    .radar-sweep {
+        width: 280px;
+        height: 280px;
+    }
+
+    /* Dossier Section */
+    .dossier-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .dossier-photo-card {
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    /* Mission Archives */
+    .dossier-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .missions-list-container {
+        max-height: 220px;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 8px;
+    }
+
+    .mission-tab-btn {
+        min-width: 180px;
+        flex-shrink: 0;
+    }
+
+    .mission-dossier-card {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .folder-header {
+        flex-direction: column;
+    }
+
+    .folder-metadata {
+        width: 100%;
+        min-width: auto;
+    }
+
+    /* CCTV Station */
+    .cctv-dashboard {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 12px;
+    }
+
+    .cctv-controls {
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        padding-left: 0;
+        padding-top: 15px;
+    }
+
+    .feed-list {
+        flex-direction: row;
+        max-height: none;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
+    .feed-item {
+        min-width: 180px;
+        flex-shrink: 0;
+    }
+
+    /* Action COD Feed */
+    .action-hud-elements {
+        padding: 80px 20px 20px 20px;
+    }
+
+    .action-hud-top {
+        margin-top: 20px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .hud-center-title {
+        font-size: 1.6rem;
+    }
+
+    .hud-center-logo-wrap {
+        width: 90px;
+        height: 90px;
+    }
+
+    .hud-center-logo {
+        width: 76px;
+        height: 76px;
+    }
+
+    /* Armory Showcase */
+    .armory-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .weapons-selector {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
+    .weapon-sel-btn {
+        min-width: 150px;
+        flex-shrink: 0;
+    }
+
+    .blueprint-content {
+        grid-template-columns: 1fr;
+    }
+
+    .blueprint-main {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 20px;
+    }
+
+    .blueprint-specs-panel {
+        padding: 20px;
+    }
+
+    /* Init Overlay */
+    .hud-init-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .init-glitch-logo {
+        font-size: 1.1rem;
+    }
+
+    .init-terminal-log {
+        padding: 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Breakpoint: Small Mobile Phones (<= 480px) */
+@media (max-width: 480px) {
+    .hud-container {
+        padding: 0 12px;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .hud-corners {
+        display: none; /* Prevent cluttering mobile screens */
+    }
+
+    .scroll-indicator {
+        margin-top: 40px;
+    }
+
+    .tab-buttons {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .tab-btn {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+    }
+
+    .folder-title {
+        font-size: 1.6rem;
+    }
+
+    .action-hud-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .action-btn-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .media-deck-widget {
+        width: calc(100vw - 24px);
+        right: 12px;
+        bottom: 12px;
+    }
+}
+
+
 
