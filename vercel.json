@@ -1,5 +1,25 @@
 {
   "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/sitemap.xml",
+      "dest": "/sitemap.xml",
+      "headers": {
+        "Content-Type": "application/xml"
+      }
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/robots.txt",
+      "headers": {
+        "Content-Type": "text/plain"
+      }
+    },
+    {
+      "src": "/googlebcd42b0eb2ed3168.html",
+      "dest": "/googlebcd42b0eb2ed3168.html"
+    }
+  ],
   "headers": [
     {
       "source": "/asset/(.*)",
