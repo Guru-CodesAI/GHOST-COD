@@ -494,7 +494,11 @@
             </div>
             
             <div class="full-screen-video-container">
-                <video id="action-video" loop autoplay muted playsinline webkit-playsinline class="full-screen-video" src="asset/[TubePull] All_Simon_Ghost_Riley.mp4"></video>
+                <video id="action-video" loop autoplay muted playsinline webkit-playsinline preload="metadata" class="full-screen-video">
+                    <source src="asset/GhostAction-Main.mp4" type="video/mp4">
+                    <source src="asset/[TubePull]%20All_Simon_Ghost_Riley.mp4" type="video/mp4">
+                    <source src="asset/library/GhostAction-1.mp4" type="video/mp4">
+                </video>
                 <div class="action-video-overlay">
                     <div class="video-overlay-grid"></div>
                     <div class="video-vignette"></div>
