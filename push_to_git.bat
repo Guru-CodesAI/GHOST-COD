@@ -30,7 +30,7 @@ git branch -M main
 
 echo [3/4] Indexing and committing declassified dossier files...
 git add .
-git commit -m "Security & Cleanup: Remove sensitive local paths and redundant lockfiles"
+git commit -m "SEO: Add Google Search Console verification HTML file and meta tag"
 
 echo.
 echo [4/4] Transmitting telemetry stream to GitHub...
