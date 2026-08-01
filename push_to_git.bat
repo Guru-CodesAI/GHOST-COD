@@ -30,7 +30,7 @@ git branch -M main
 
 echo [3/4] Indexing and committing declassified dossier files...
 git add .
-git commit -m "SEO Fix: Add explicit vercel.json routes for sitemap.xml and robots.txt to bypass 308 redirect"
+git commit -m "SEO Fix: Remove cleanUrls redirect and set direct XML headers in vercel.json"
 
 echo.
 echo [4/4] Transmitting telemetry stream to GitHub...
