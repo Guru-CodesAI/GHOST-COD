@@ -19,6 +19,24 @@
       ]
     },
     {
+      "source": "/site.webmanifest",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "image/x-icon"
+        }
+      ]
+    },
+    {
       "source": "/asset/(.*)",
       "headers": [
         {
