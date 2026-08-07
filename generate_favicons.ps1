@@ -26,6 +26,14 @@ foreach ($key in $brainMap.Keys) {
     }
 }
 
+# Ensure GhostAction-Main.mp4 video asset exists
+$ghostMainSrc = Join-Path $scriptDir "asset\library\GhostAction-1.mp4"
+$ghostMainDest = Join-Path $scriptDir "asset\GhostAction-Main.mp4"
+if (Test-Path $ghostMainSrc) {
+    Copy-Item -Path $ghostMainSrc -Destination $ghostMainDest -Force
+    Write-Host "  [+] Prepared GhostAction-Main.mp4 video asset (6.6MB)"
+}
+
 if ($copiedCount -ge 5) {
     Write-Host "========================================================="
     Write-Host " [SUCCESS] All 6 favicon files installed to project root!"
