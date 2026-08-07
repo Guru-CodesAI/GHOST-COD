@@ -1,11 +1,14 @@
 {
   "name": "GHOST-COD",
   "short_name": "GHOST",
-  "description": "Cinematic fan-made website inspired by Simon 'Ghost' Riley.",
+  "description": "A cinematic fan-made web experience inspired by Simon 'Ghost' Riley.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#050505",
   "theme_color": "#050505",
+  "orientation": "portrait-primary",
+
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

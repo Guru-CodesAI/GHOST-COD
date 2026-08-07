@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>https://ghost-cod.vercel.app/</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://ghost-cod.vercel.app/asset/Hero-Sec/Ghost%20Modern-Hero%20Section%20Concept.jpg</image:loc>
-      <image:title>GHOST // TASK FORCE 141 DECLASSIFIED DOSSIER</image:title>
-    </image:image>
-  </url>
+
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <url>
+
+        <loc>https://ghost-cod.vercel.app/</loc>
+
+        <lastmod>2026-08-07</lastmod>
+
+        <changefreq>weekly</changefreq>
+
+        <priority>1.0</priority>
+
+        <image:image>
+
+            <image:loc>
+                https://ghost-cod.vercel.app/asset/Hero-Sec/Ghost%20Modern-Hero%20Section%20Concept.jpg
+            </image:loc>
+
+            <image:title>
+                GHOST-COD | Cinematic Fan Experience
+            </image:title>
+
+        </image:image>
+
+    </url>
+
 </urlset>
